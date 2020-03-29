@@ -32,6 +32,23 @@ $(function(){
     })
 }) //End of axios chasData
 
+let hosData = '../data/hospital.geojson'
+$('#hospital').click(function(){
+    axios.get(hosData).then(function(response){
+
+        let hosCordinates = response.data.features
+        let x = 0
+        for (let h of hosCordinates){              
+            let t = hosCordinates[x].geometry.coordinates
+            let hosMarker = L.marker([t[0],t[1]]);
+            let m = hosMarker.bindPopup(response.data.features[x].geometry.Name)
+            m.addTo(map);
+            x = x + 1;
+        }
+})
+})
+
+
 
 
 })
