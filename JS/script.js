@@ -13,16 +13,19 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 $(function(){
     // Getting chas clinic data
     let chasData = '../data/chas-clinics-geojson.geojson'
-    axios.get(chasData).then(function(response){
+    // Upon clicking CHAS button
+    $('#chas').click(function(){
+        axios.get(chasData).then(function(response){
             let chasCordinates = response.data.features
             let x = 0
             for (let c of chasCordinates){              
                 console.log(chasCordinates[x].geometry.coordinates)          
                 let t = chasCordinates[x].geometry.coordinates
                 let chasMarker = L.marker([t[1],t[0]]);
-                chasMarker.addTo(map);
+                chasMarker.bindPopup(response.data.features[x].properties.Description).addTo(map);
                 x = x + 1;
             }
+    })
 }) //End of axios chasData
 
 
