@@ -1,3 +1,4 @@
+// Creating Map
 let map = L.map('map').setView([1.3521, 103.8198], 11);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -8,3 +9,22 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoiYm9vbmh1aTkxIiwiYSI6ImNrOGJkanRtazAyczMzbWp4eXpqMnF2aXMifQ.dPr5Glf2pRlpNMY9w-E-CQ'
 }).addTo(map);
+
+$(function(){
+    // Getting chas clinic data
+    let chasData = '../data/chas-clinics-geojson.geojson'
+    axios.get(chasData).then(function(response){
+            let chasCordinates = response.data.features
+            let x = 0
+            for (let c of chasCordinates){              
+                console.log(chasCordinates[x].geometry.coordinates)          
+                let t = chasCordinates[x].geometry.coordinates
+                let chasMarker = L.marker([t[1],t[0]]);
+                chasMarker.addTo(map);
+                x = x + 1;
+            }
+}) //End of axios chasData
+
+
+
+})
