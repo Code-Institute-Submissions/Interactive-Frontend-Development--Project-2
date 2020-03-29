@@ -17,12 +17,16 @@ $(function(){
     $('#chas').click(function(){
         axios.get(chasData).then(function(response){
             let chasCordinates = response.data.features
+            let chasMarkerCluster = L.markerClusterGroup()
             let x = 0
             for (let c of chasCordinates){              
                 console.log(chasCordinates[x].geometry.coordinates)          
                 let t = chasCordinates[x].geometry.coordinates
                 let chasMarker = L.marker([t[1],t[0]]);
-                chasMarker.bindPopup(response.data.features[x].properties.Description).addTo(map);
+                let m = chasMarker.bindPopup(response.data.features[x].properties.Description)
+                chasMarkerCluster.addLayer(m);
+                map.addLayer(chasMarkerCluster)   
+                // chasMarker.bindPopup(response.data.features[x].properties.Description).addTo(map);
                 x = x + 1;
             }
     })
