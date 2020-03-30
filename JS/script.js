@@ -13,11 +13,12 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 $(function(){
     // Getting chas clinic data
     let chasData = '../data/chas-clinics-geojson.geojson'
+    
+    let chasMarkerCluster = L.markerClusterGroup()
     // Upon clicking CHAS button
     $('#chas').click(function(){
         axios.get(chasData).then(function(response){
-            let chasCordinates = response.data.features
-            let chasMarkerCluster = L.markerClusterGroup()
+            let chasCordinates = response.data.features 
             let x = 0
             for (let c of chasCordinates){              
                 console.log(chasCordinates[x].geometry.coordinates)          
@@ -25,13 +26,21 @@ $(function(){
                 let chasMarker = L.marker([t[1],t[0]]);
                 let m = chasMarker.bindPopup(response.data.features[x].properties.Description)
                 chasMarkerCluster.addLayer(m);
-                map.addLayer(chasMarkerCluster)   
+                // map.addLayer(chasMarkerCluster)   
                 // chasMarker.bindPopup(response.data.features[x].properties.Description).addTo(map);
                 x = x + 1;
             }
+            if (map.hasLayer(chasMarkerCluster)){
+                map.removeLayer(chasMarkerCluster)
+
+            }
+            else{
+                map.addLayer(chasMarkerCluster)
+            }
+            
     })
 }) //End of axios chasData
-
+let hospitalLayerGroup = L.layerGroup();
 let hosData = '../data/hospital.geojson'
 $('#hospital').click(function(){
     axios.get(hosData).then(function(response){
@@ -42,8 +51,16 @@ $('#hospital').click(function(){
             let t = hosCordinates[x].geometry.coordinates
             let hosMarker = L.marker([t[0],t[1]]);
             let m = hosMarker.bindPopup(response.data.features[x].geometry.Name)
-            m.addTo(map);
+            hospitalLayerGroup.addLayer(m)
+            // m.addTo(map);
+            // map.addLayer(m)
             x = x + 1;
+        }
+        if (map.hasLayer(hospitalLayerGroup)){
+            map.removeLayer(hospitalLayerGroup)
+        }
+        else{
+            map.addLayer(hospitalLayerGroup)
         }
 })
 })
