@@ -76,6 +76,19 @@ $(function(){
     })// end of Axios hosData 
 
 
+        let clusterCases = omnivore.kml('../data/dengue-clusters-kml.kml')
 
+    $('#cluster').click(function(){
+        // let clusterCases = omnivore.kml('../data/dengue-clusters-kml.kml').addTo(map)
+        if (map.hasLayer(clusterCases)){
+            map.removeLayer(clusterCases)
+            $('#cluster').text("Show Cluster")
+        }
+        else{
+            // map.addLayer(clusterCases)
+            clusterCases.addTo(map)
+            $('#cluster').text("Hide Cluster")
+        }
+    })
 
 })
