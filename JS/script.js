@@ -97,4 +97,26 @@ $(function(){
         }
     })
 
+
+
+    // creating layers for breeding habitat  
+    let centralHabitat = omnivore.kml('../data/aedes-mosquito-breeding-habitats-central-kml.kml')
+    let northEastHabitat = omnivore.kml('../data/aedes-mosquito-breeding-habitats-north-east-kml.kml')
+    let northWestHabitat = omnivore.kml('../data/aedes-mosquito-breeding-habitats-north-west-kml.kml')
+    let southEastHabitat = omnivore.kml('../data/aedes-mosquito-breeding-habitats-south-east-kml.kml')
+    let southWestHabitat = omnivore.kml('../data/aedes-mosquito-breeding-habitats-south-west-kml.kml')
+
+    // seting individual layer
+    let habitatLayers = {
+        'Central': centralHabitat,
+        'North East': northEastHabitat,
+        'North West' : northWestHabitat,
+        'South East' : southEastHabitat,
+        'South West' : southWestHabitat
+    }
+
+    // creating layer control on map
+    let layerControl = L.control.layers(null,habitatLayers).addTo(map);
+    map.addControl(layerControl);
+
 })
