@@ -49,7 +49,7 @@ $(function(){
     // creating the Hospital markers layers
     let hospitalLayerGroup = L.layerGroup();
 
-    // Upon clicking Hospital function
+    // Upon clicking Hospital button
     $('#hospital').click(function(){
         axios.get(hosData).then(function(response){
 
@@ -75,18 +75,24 @@ $(function(){
     })
     })// end of Axios hosData 
 
+    // leaflet omnivore
+    let clusterCases = omnivore.kml('../data/dengue-clusters-kml.kml').addTo(map)
+    .on('ready', function() {
+     this.setStyle({color: "#FF0000"});
+ });
+ // workaround for cluster to reflect the added color, to remove the layer on default
+    if (map.hasLayer(clusterCases)){
+        map.removeLayer(clusterCases);
+    }
 
-        let clusterCases = omnivore.kml('../data/dengue-clusters-kml.kml')
-
-    $('#cluster').click(function(){
-        // let clusterCases = omnivore.kml('../data/dengue-clusters-kml.kml').addTo(map)
+        //Upon clicking on Show Cluster button
+    $('#cluster').click(function(){  
         if (map.hasLayer(clusterCases)){
             map.removeLayer(clusterCases)
             $('#cluster').text("Show Cluster")
         }
         else{
-            // map.addLayer(clusterCases)
-            clusterCases.addTo(map)
+            map.addLayer(clusterCases)
             $('#cluster').text("Hide Cluster")
         }
     })
