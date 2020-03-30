@@ -11,17 +11,20 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 $(function(){
-    // Getting chas clinic data
+    // Getting data sets
     let chasData = '../data/chas-clinics-geojson.geojson'
-    
+    let hosData = '../data/hospital.geojson'
+
+    // creating the CHAS marker clusters layer
     let chasMarkerCluster = L.markerClusterGroup()
+   
     // Upon clicking CHAS button
     $('#chas').click(function(){
         axios.get(chasData).then(function(response){
             let chasCordinates = response.data.features 
             let x = 0
             for (let c of chasCordinates){              
-                console.log(chasCordinates[x].geometry.coordinates)          
+                // console.log(chasCordinates[x].geometry.coordinates)          
                 let t = chasCordinates[x].geometry.coordinates
                 let chasMarker = L.marker([t[1],t[0]]);
                 let m = chasMarker.bindPopup(response.data.features[x].properties.Description)
@@ -32,38 +35,45 @@ $(function(){
             }
             if (map.hasLayer(chasMarkerCluster)){
                 map.removeLayer(chasMarkerCluster)
+                $('#chas').text("Show CHAS")
 
             }
             else{
                 map.addLayer(chasMarkerCluster)
+                $('#chas').text("Hide CHAS")
             }
             
     })
 }) //End of axios chasData
-let hospitalLayerGroup = L.layerGroup();
-let hosData = '../data/hospital.geojson'
-$('#hospital').click(function(){
-    axios.get(hosData).then(function(response){
 
-        let hosCordinates = response.data.features
-        let x = 0
-        for (let h of hosCordinates){              
-            let t = hosCordinates[x].geometry.coordinates
-            let hosMarker = L.marker([t[0],t[1]]);
-            let m = hosMarker.bindPopup(response.data.features[x].geometry.Name)
-            hospitalLayerGroup.addLayer(m)
-            // m.addTo(map);
-            // map.addLayer(m)
-            x = x + 1;
-        }
-        if (map.hasLayer(hospitalLayerGroup)){
-            map.removeLayer(hospitalLayerGroup)
-        }
-        else{
-            map.addLayer(hospitalLayerGroup)
-        }
-})
-})
+    // creating the Hospital markers layers
+    let hospitalLayerGroup = L.layerGroup();
+
+    // Upon clicking Hospital function
+    $('#hospital').click(function(){
+        axios.get(hosData).then(function(response){
+
+            let hosCordinates = response.data.features
+            let x = 0
+            for (let h of hosCordinates){              
+                let t = hosCordinates[x].geometry.coordinates
+                let hosMarker = L.marker([t[0],t[1]]);
+                let m = hosMarker.bindPopup(response.data.features[x].geometry.Name)
+                hospitalLayerGroup.addLayer(m)
+                // m.addTo(map);
+                // map.addLayer(m)
+                x = x + 1;
+            }
+            if (map.hasLayer(hospitalLayerGroup)){
+                map.removeLayer(hospitalLayerGroup)
+                $('#hospital').text("Show Hospital")
+            }
+            else{
+                map.addLayer(hospitalLayerGroup)
+                $('#hospital').text("Hide Hospital")
+            }
+    })
+    })// end of Axios hosData 
 
 
 
