@@ -1,3 +1,9 @@
 #map {
     height: 500px;
 }
+
+/* stying of layer control header */
+#control-header {
+    font-weight: bold;
+    color: red;
+}

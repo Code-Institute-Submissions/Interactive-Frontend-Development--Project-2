@@ -119,4 +119,7 @@ $(function(){
     let layerControl = L.control.layers(null,habitatLayers).addTo(map);
     map.addControl(layerControl);
 
+    // Layer control header
+    $('<h6 id ="control-header">Breeding Habitat</h6>').insertBefore('div.leaflet-control-layers-base');
+
 })
