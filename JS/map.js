@@ -17,6 +17,9 @@ $(function(){
 
     // creating the CHAS marker clusters layer
     let chasMarkerCluster = L.markerClusterGroup()
+    // creating the Hospital markers layers
+    let hospitalLayerGroup = L.layerGroup();
+
    
     // Upon clicking CHAS button
     $('#chas').click(function(){
@@ -36,23 +39,18 @@ $(function(){
             if (map.hasLayer(chasMarkerCluster)){
                 map.removeLayer(chasMarkerCluster)
                 $('#chas').text("Show CHAS")
-
             }
             else{
                 map.addLayer(chasMarkerCluster)
                 $('#chas').text("Hide CHAS")
-            }
-            
+            }   
     })
 }) //End of axios chasData
 
-    // creating the Hospital markers layers
-    let hospitalLayerGroup = L.layerGroup();
 
     // Upon clicking Hospital button
     $('#hospital').click(function(){
         axios.get(hosData).then(function(response){
-
             let hosCordinates = response.data.features
             let x = 0
             for (let h of hosCordinates){              
@@ -96,8 +94,6 @@ $(function(){
             $('#cluster').text("Hide Cluster")
         }
     })
-
-
 
     // creating layers for breeding habitat  
     let centralHabitat = omnivore.kml('../data/aedes-mosquito-breeding-habitats-central-kml.kml')
