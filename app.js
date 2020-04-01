@@ -4,6 +4,7 @@ let graphData = [
     'data/surface-air-temperature-monthly-mean.csv',
     'data/relative-humidity-monthly-mean.csv',
     'data/rainfall-monthly-total.csv',
+    'data/base_template.csv'
 ];
 
 $(function(){

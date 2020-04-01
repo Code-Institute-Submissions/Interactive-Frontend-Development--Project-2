@@ -32,18 +32,76 @@ function mergeData(allData){
     let tempData = allData[1]
     let humidityData = allData[2]
     let rainfallData = allData[3]
+    let baseData = allData[4]
 
+
+
+    /*
     //creating crossfilter for diseaseData
     let diseaseCF = crossfilter(diseaseData);
+    let tempCF = crossfilter(tempData);
     let diseaseDimension = diseaseCF.dimension(d => d.disease)
     let yearDimension = diseaseCF.dimension(d => d.epi_week.substring(0,4))
-    //filtering disease
+   
+    //filtering disease data
     diseaseDimension.filter(function(item){
         return item == "Dengue Fever"
     })
-    // console.table(yearDimension.top(50))
+    // console.table(yearDimension.top(10))
+    let filteredDiseaseGroup = yearDimension.group().reduceSum(d => d.cases)
+    console.table(filteredDiseaseGroup.top(50))
+    // console.log(filteredDiseaseGroup)
+    let tempDimension = tempCF.dimension(d => d.mean_temp)
+    console.table(tempDimension.top(50))
 
-    let filteredGroup = yearDimension.group().reduceSum(d => d.cases)
-    console.table(filteredGroup.top(50))
+    let testingDimension = diseaseCF.dimension(tempCF => tempCF.mean_temp);
+    console.table(testingDimension.top(50))
+    console.table(yearDimension.top(50))
+
+    // let tempCF = crossfilter(tempData);
+    // console.log(tempCF)
+    // console.log(tempData)
+    // let tempDimension = tempCF.dimension(d=>d.mean_temp)
+    // console.table(tempDimension.top(50))
+
+    // filteredDiseaseGroup.add(tempDimension)
+*/
+
+
+    // filtering disease data
+    for (let t of tempData){
+        // if (d.disease != 'Dengue Fever'){
+        //     continue;
+        // }
+        
+        // filtering of yearly cases
+
+    let yearlyCases = 0;
+    // let count = 0;
+    for (let d of diseaseData){
+        // let startYear = d.epi_week.substring(0,4)
+        if (d.epi_week.indexOf(parseInt(t.month)) != -1 )  {
+            yearlyCases += d.cases  
+            // count++          
+        }
+
+        // console.log(d.epi_week.indexOf(parseInt(startYear)))
+    }
+
+    // yearlyAverageCases = yearlyAverageCases/52 ;
+
+// console.log(yearlyAverageCases)
+// console.log(d.epi_week.substring(0,4))
+
+
+let transformedObject = {
+    year: t.month,
+    Cases:yearlyCases
+    // average_index: average_index
+};
+finalData.push(transformedObject)
+    }// end of for loop
+
+console.log(finalData);
 
 }
