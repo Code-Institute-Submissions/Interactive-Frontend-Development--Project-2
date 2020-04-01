@@ -33,35 +33,17 @@ function mergeData(allData){
     let humidityData = allData[2]
     let rainfallData = allData[3]
 
-    // filtering disease data
-    for (let d of diseaseData){
-        // if (d.disease != 'Dengue Fever'){
-        //     continue;
-        // }
-        
-        // filtering of yearly cases
+    //creating crossfilter for diseaseData
+    let diseaseCF = crossfilter(diseaseData);
+    let diseaseDimension = diseaseCF.dimension(d => d.disease)
+    let yearDimension = diseaseCF.dimension(d => d.epi_week.substring(0,4))
+    //filtering disease
+    diseaseDimension.filter(function(item){
+        return item == "Dengue Fever"
+    })
+    // console.table(yearDimension.top(50))
 
-    let yearlyAverageCases = 0;
-    for (let d of diseaseData){
-        let x = 0;
-        let startYear = 2012
-        if (d.epi_week.indexOf(parseInt(startYear) + x) != -1  && (d.disease == 'Dengue Fever')){
-            yearlyAverageCases += d.cases
-            x++ 
-        }
-
-        // console.log(d.epi_week.indexOf(parseInt(startYear)))
-    }
-
-    // yearlyAverageCases = yearlyAverageCases/52 ;
-
-console.log(yearlyAverageCases)
-
-
-
-    }// end of for loop
-
-
-
+    let filteredGroup = yearDimension.group().reduceSum(d => d.cases)
+    console.table(filteredGroup.top(50))
 
 }
