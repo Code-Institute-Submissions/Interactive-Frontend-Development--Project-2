@@ -8,7 +8,8 @@ let graphData = [
 
 $(function(){
 
-    runData(graphData)
+    runData(graphData, processData)
 })
+
 
 
