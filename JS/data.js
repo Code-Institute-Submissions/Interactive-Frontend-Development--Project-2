@@ -35,9 +35,9 @@ function mergeData(allData){
 
     // filtering disease data
     for (let d of diseaseData){
-        if (d.disease != 'Dengue Fever'){
-            continue;
-        }
+        // if (d.disease != 'Dengue Fever'){
+        //     continue;
+        // }
         
         // filtering of yearly cases
 
@@ -45,7 +45,7 @@ function mergeData(allData){
     for (let d of diseaseData){
         let x = 0;
         let startYear = 2012
-        if (d.epi_week.indexOf(parseInt(startYear) + x) != -1 ){
+        if (d.epi_week.indexOf(parseInt(startYear) + x) != -1  && (d.disease == 'Dengue Fever')){
             yearlyAverageCases += d.cases
             x++ 
         }
