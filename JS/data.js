@@ -48,8 +48,9 @@ function mergeData(allData){
     // filtering of temperature data
     let yearlyAverageTemp = 0;
     for (let t of tempData){
-        if (t.month.indexOf(parseInt(b.year)) != -1 )
-        yearlyAverageTemp += t.mean_temp
+        if (t.month.indexOf(parseInt(b.year)) != -1 ){
+            yearlyAverageTemp += t.mean_temp
+        } 
     }
     // average of the monthly temperature
     yearlyAverageTemp = yearlyAverageTemp/12
@@ -58,17 +59,27 @@ function mergeData(allData){
     // filtering of humidity data
     let yearlyAverageHumidity = 0;
     for (let h of humidityData){
-        if (h.month.indexOf(parseInt(b.year)) != -1 )
-        yearlyAverageHumidity += h.mean_rh
+        if (h.month.indexOf(parseInt(b.year)) != -1 ){
+            yearlyAverageHumidity += h.mean_rh
+        }      
     }
     yearlyAverageHumidity = yearlyAverageHumidity/12
+
+    // filtering of rainfall data
+    let yearlyAverageRainfall = 0;
+    for (let r of rainfallData){
+        if (r.month.indexOf(parseInt(b.year)) != -1 ){
+            yearlyAverageRainfall += r.total_rainfall
+        }
+    }
 
     //storing of the transformed object
     let transformedObject = {
         year: b.year,
         Cases:yearlyCases,
         Temperater: yearlyAverageTemp,
-        Humidity: yearlyAverageHumidity
+        Humidity: yearlyAverageHumidity,
+        Rainfall: yearlyAverageRainfall
     };
 
 finalData.push(transformedObject)
