@@ -51,13 +51,25 @@ function mergeData(allData){
         if (t.month.indexOf(parseInt(b.year)) != -1 )
         yearlyAverageTemp += t.mean_temp
     }
+    // average of the monthly temperature
     yearlyAverageTemp = yearlyAverageTemp/12
 
-let transformedObject = {
-    year: b.year,
-    Cases:yearlyCases,
-    Temperater: yearlyAverageTemp
-};
+
+    // filtering of humidity data
+    let yearlyAverageHumidity = 0;
+    for (let h of humidityData){
+        if (h.month.indexOf(parseInt(b.year)) != -1 )
+        yearlyAverageHumidity += h.mean_rh
+    }
+    yearlyAverageHumidity = yearlyAverageHumidity/12
+
+    //storing of the transformed object
+    let transformedObject = {
+        year: b.year,
+        Cases:yearlyCases,
+        Temperater: yearlyAverageTemp,
+        Humidity: yearlyAverageHumidity
+    };
 
 finalData.push(transformedObject)
     }// end of baseData for loop
