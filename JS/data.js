@@ -45,9 +45,18 @@ function mergeData(allData){
         }  
     }
 
+    // filtering of temperature data
+    let yearlyAverageTemp = 0;
+    for (let t of tempData){
+        if (t.month.indexOf(parseInt(b.year)) != -1 )
+        yearlyAverageTemp += t.mean_temp
+    }
+    yearlyAverageTemp = yearlyAverageTemp/12
+
 let transformedObject = {
     year: b.year,
-    Cases:yearlyCases
+    Cases:yearlyCases,
+    Temperater: yearlyAverageTemp
 };
 
 finalData.push(transformedObject)
