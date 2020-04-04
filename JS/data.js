@@ -76,7 +76,7 @@ function mergeData(allData){
 
     //storing of the transformed object
     let transformedObject = {
-        year: b.year,
+        year: moment(b.year, "YYYY").toDate(),
         Cases:yearlyCases,
         Temperater: yearlyAverageTemp,
         Humidity: yearlyAverageHumidity,
