@@ -7,7 +7,8 @@ function createGraph(finalData){
     // drawing of cases graph
     casesGraph(cfData);
     tempGraph(cfData);
-    rainGraph
+    rainGraph(cfData);
+    humidityGraph(cfData);
 
     dc.renderAll();
 }
@@ -21,8 +22,8 @@ function casesGraph(cfData){
     let minDate = yearDimension.bottom(1)[0].year;
     let maxDate = yearDimension.top(1)[0].year;
 
-    let indexGraph = new dc.LineChart("#graph");
-    indexGraph.width(900)
+    let casesGraph = new dc.LineChart("#graph");
+    casesGraph.width(900)
         .height(500)
         .dimension(yearDimension)
         .group(caseGroup)
@@ -41,13 +42,53 @@ function tempGraph(cfData){
     let minDate = yearDimension.bottom(1)[0].year;
     let maxDate = yearDimension.top(1)[0].year;
 
-    let indexGraph = new dc.LineChart("#graph2");
-    indexGraph.width(900)
+    let tempGraph = new dc.LineChart("#graph2");
+    tempGraph.width(900)
         .height(500)
         .dimension(yearDimension)
         .group(tempGroup)
         .x(d3.scaleTime().domain([minDate, maxDate]))
         .xAxisLabel('Year')
-        .yAxisLabel('Cases')
+        .yAxisLabel('Temperature')
+        .yAxis().ticks(4)
+}
+
+function rainGraph(cfData){
+    let yearDimension = cfData.dimension(f => f.year);
+    let rainGroup = yearDimension.group().reduceSum(y => y.Rainfall)
+
+    // console.table(yearGroup.top(10))
+
+    let minDate = yearDimension.bottom(1)[0].year;
+    let maxDate = yearDimension.top(1)[0].year;
+
+    let rainGraph = new dc.LineChart("#graph3");
+    rainGraph.width(900)
+        .height(500)
+        .dimension(yearDimension)
+        .group(rainGroup)
+        .x(d3.scaleTime().domain([minDate, maxDate]))
+        .xAxisLabel('Year')
+        .yAxisLabel('Rainfall')
+        .yAxis().ticks(4)
+}
+
+function humidityGraph(cfData){
+    let yearDimension = cfData.dimension(f => f.year);
+    let humidGroup = yearDimension.group().reduceSum(y => y.Humidity)
+
+    // console.table(yearGroup.top(10))
+
+    let minDate = yearDimension.bottom(1)[0].year;
+    let maxDate = yearDimension.top(1)[0].year;
+
+    let humidityGraph = new dc.LineChart("#graph4");
+    humidityGraph.width(900)
+        .height(500)
+        .dimension(yearDimension)
+        .group(humidGroup)
+        .x(d3.scaleTime().domain([minDate, maxDate]))
+        .xAxisLabel('Year')
+        .yAxisLabel('Humidity')
         .yAxis().ticks(4)
 }
