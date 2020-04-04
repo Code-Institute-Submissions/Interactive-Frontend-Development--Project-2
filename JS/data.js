@@ -22,6 +22,7 @@ function runData(graphData, processData){
 
 function processData(allData){
     let finalData = mergeData(allData)
+    createGraph(finalData);
 }
 
 
