@@ -78,7 +78,7 @@ function mergeData(allData){
     let transformedObject = {
         year: moment(b.year, "YYYY").toDate(),
         Cases:yearlyCases,
-        Temperater: yearlyAverageTemp,
+        Temperature: yearlyAverageTemp,
         Humidity: yearlyAverageHumidity,
         Rainfall: yearlyAverageRainfall
     };
