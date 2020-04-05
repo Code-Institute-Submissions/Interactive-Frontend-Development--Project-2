@@ -7,3 +7,16 @@
     font-weight: bold;
     color: red;
 }
+
+
+/* nav bar */
+#navbarNavAltMarkup {
+    justify-content: center;
+}
+.nav-item {
+    margin-right: 150px;
+}
+
+.navbar-nav{
+    font-weight: 600;
+}

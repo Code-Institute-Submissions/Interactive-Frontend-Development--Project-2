@@ -3,7 +3,7 @@ function createGraph(finalData){
     //setting crossfilter on combined data
     let cfData = crossfilter(finalData);
     let yearDimension = cfData.dimension(f => f.year);
-    // console.table(yearDimension.bottom(10))
+  
     // drawing of cases graph
     casesGraph(cfData);
     tempGraph(cfData);
@@ -16,8 +16,6 @@ function createGraph(finalData){
 function casesGraph(cfData){
     let yearDimension = cfData.dimension(f => f.year);
     let caseGroup = yearDimension.group().reduceSum(y => y.Cases)
-
-    // console.table(yearGroup.top(10))
 
     let minDate = yearDimension.bottom(1)[0].year;
     let maxDate = yearDimension.top(1)[0].year;
@@ -37,8 +35,6 @@ function tempGraph(cfData){
     let yearDimension = cfData.dimension(f => f.year);
     let tempGroup = yearDimension.group().reduceSum(y => y.Temperature)
 
-    // console.table(yearGroup.top(10))
-
     let minDate = yearDimension.bottom(1)[0].year;
     let maxDate = yearDimension.top(1)[0].year;
 
@@ -50,14 +46,12 @@ function tempGraph(cfData){
         .x(d3.scaleTime().domain([minDate, maxDate]))
         .xAxisLabel('Year')
         .yAxisLabel('Temperature')
-        .yAxis().ticks(4)
+        .yAxis().ticks(20)
 }
 
 function rainGraph(cfData){
     let yearDimension = cfData.dimension(f => f.year);
     let rainGroup = yearDimension.group().reduceSum(y => y.Rainfall)
-
-    // console.table(yearGroup.top(10))
 
     let minDate = yearDimension.bottom(1)[0].year;
     let maxDate = yearDimension.top(1)[0].year;
@@ -70,14 +64,12 @@ function rainGraph(cfData){
         .x(d3.scaleTime().domain([minDate, maxDate]))
         .xAxisLabel('Year')
         .yAxisLabel('Rainfall')
-        .yAxis().ticks(4)
+        .yAxis().ticks(20)
 }
 
 function humidityGraph(cfData){
     let yearDimension = cfData.dimension(f => f.year);
     let humidGroup = yearDimension.group().reduceSum(y => y.Humidity)
-
-    // console.table(yearGroup.top(10))
 
     let minDate = yearDimension.bottom(1)[0].year;
     let maxDate = yearDimension.top(1)[0].year;
@@ -90,5 +82,5 @@ function humidityGraph(cfData){
         .x(d3.scaleTime().domain([minDate, maxDate]))
         .xAxisLabel('Year')
         .yAxisLabel('Humidity')
-        .yAxis().ticks(4)
+        .yAxis().ticks(20)
 }

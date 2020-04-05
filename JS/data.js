@@ -15,7 +15,7 @@ function runData(graphData, processData){
         }
         axios.all(promises).then(function(allData){
             processData(allData)
-            // console.log(allData)          
+                 
         })
     })
 } // end of runData function
@@ -86,6 +86,6 @@ function mergeData(allData){
 finalData.push(transformedObject)
     }// end of baseData for loop
 
-console.log(finalData);
+// console.log(finalData);
 return finalData;
 } // end of mergeData function
