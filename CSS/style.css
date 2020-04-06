@@ -15,8 +15,15 @@
 }
 .nav-item {
     margin-right: 150px;
+    margin-left: 150px;
 }
 
 .navbar-nav{
     font-weight: 600;
+}
+
+#intro{
+    background-image: url(../images/mosquito-bg.jpg);
+    height: 700px;
+    background-size: cover;
 }

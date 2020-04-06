@@ -10,6 +10,8 @@ function createGraph(finalData){
     rainGraph(cfData);
     humidityGraph(cfData);
 
+    // apply_resizing(casesGraph, 20, 100);
+    
     dc.renderAll();
 }
 
@@ -29,6 +31,9 @@ function casesGraph(cfData){
         .xAxisLabel('Year')
         .yAxisLabel('Cases')
         .yAxis().ticks(10)
+
+        apply_resizing(casesGraph, 20, 100);
+
 }
 
 function tempGraph(cfData){
@@ -47,6 +52,8 @@ function tempGraph(cfData){
         .xAxisLabel('Year')
         .yAxisLabel('Temperature')
         .yAxis().ticks(20)
+
+        apply_resizing(tempGraph, 20, 100);
 }
 
 function rainGraph(cfData){
@@ -65,6 +72,8 @@ function rainGraph(cfData){
         .xAxisLabel('Year')
         .yAxisLabel('Rainfall')
         .yAxis().ticks(20)
+
+        apply_resizing(rainGraph, 20, 100);
 }
 
 function humidityGraph(cfData){
@@ -83,4 +92,6 @@ function humidityGraph(cfData){
         .xAxisLabel('Year')
         .yAxisLabel('Humidity')
         .yAxis().ticks(20)
+
+        apply_resizing(humidityGraph, 20, 100);
 }
