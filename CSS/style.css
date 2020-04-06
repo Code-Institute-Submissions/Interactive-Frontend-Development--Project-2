@@ -22,8 +22,20 @@
     font-weight: 600;
 }
 
-#intro{
+.intro{
     background-image: url(../images/mosquito-bg.jpg);
-    height: 700px;
     background-size: cover;
+    background-position: center;
+    height: 700px;
+    /* width: 100%;
+    margin: 0px;
+    background-size: cover; */
+}
+
+.intro-header{
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+    /* padding-top: 30px; */
+    opacity: 0.5;
+    background-color: red;
 }
