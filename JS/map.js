@@ -10,6 +10,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1IjoiYm9vbmh1aTkxIiwiYSI6ImNrOGJkanRtazAyczMzbWp4eXpqMnF2aXMifQ.dPr5Glf2pRlpNMY9w-E-CQ'
 }).addTo(map);
 
+
+
+
 $(function(){
     // Getting data sets
     let chasData = '../data/chas-clinics-geojson.geojson'
@@ -120,6 +123,7 @@ $(function(){
 
 })
 
+// Home button
 var home = {
     lat:  1.3521,
     lng: 103.8198,
@@ -129,4 +133,5 @@ var home = {
   L.easyButton('fa-home',function(btn,map){
     map.setView([home.lat, home.lng], home.zoom);
   },'Zoom To Home').addTo(map);
+
 
