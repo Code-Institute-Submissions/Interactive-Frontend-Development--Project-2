@@ -119,3 +119,14 @@ $(function(){
     $('<h6 id ="control-header">Breeding Habitat</h6>').insertBefore('div.leaflet-control-layers-base');
 
 })
+
+var home = {
+    lat:  1.3521,
+    lng: 103.8198,
+    zoom: 11
+  }; 
+  
+  L.easyButton('fa-home',function(btn,map){
+    map.setView([home.lat, home.lng], home.zoom);
+  },'Zoom To Home').addTo(map);
+
