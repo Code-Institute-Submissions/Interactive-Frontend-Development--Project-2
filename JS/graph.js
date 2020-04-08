@@ -15,6 +15,14 @@ function createGraph(finalData){
     dc.renderAll();
 }
 
+// When detect less than 768 pixel screen size
+function resizing(graphname){
+    if(window.matchMedia("(max-width: 767px)").matches){
+        // apply responsive resizing to fit mobile screen size
+        apply_resizing(graphname, 20, 100);
+    } 
+}
+
 function casesGraph(cfData){
     let yearDimension = cfData.dimension(f => f.year);
     let caseGroup = yearDimension.group().reduceSum(y => y.Cases)
@@ -23,17 +31,17 @@ function casesGraph(cfData){
     let maxDate = yearDimension.top(1)[0].year;
 
     let casesGraph = new dc.LineChart("#graph");
-    casesGraph.width(900)
-        .height(500)
+    casesGraph.width(700)
+        .height(300)
         .dimension(yearDimension)
         .group(caseGroup)
         .x(d3.scaleTime().domain([minDate, maxDate]))
         .xAxisLabel('Year')
         .yAxisLabel('Cases')
-        .yAxis().ticks(10)
+        .yAxis().ticks(10);
 
-        apply_resizing(casesGraph, 20, 100);
-
+        resizing(casesGraph);
+        
 }
 
 function tempGraph(cfData){
@@ -44,8 +52,8 @@ function tempGraph(cfData){
     let maxDate = yearDimension.top(1)[0].year;
 
     let tempGraph = new dc.LineChart("#graph2");
-    tempGraph.width(900)
-        .height(500)
+    tempGraph.width(700)
+        .height(300)
         .dimension(yearDimension)
         .group(tempGroup)
         .x(d3.scaleTime().domain([minDate, maxDate]))
@@ -53,7 +61,7 @@ function tempGraph(cfData){
         .yAxisLabel('Temperature')
         .yAxis().ticks(20)
 
-        apply_resizing(tempGraph, 20, 100);
+        resizing(tempGraph);
 }
 
 function rainGraph(cfData){
@@ -64,8 +72,8 @@ function rainGraph(cfData){
     let maxDate = yearDimension.top(1)[0].year;
 
     let rainGraph = new dc.LineChart("#graph3");
-    rainGraph.width(900)
-        .height(500)
+    rainGraph.width(700)
+        .height(300)
         .dimension(yearDimension)
         .group(rainGroup)
         .x(d3.scaleTime().domain([minDate, maxDate]))
@@ -73,7 +81,7 @@ function rainGraph(cfData){
         .yAxisLabel('Rainfall')
         .yAxis().ticks(20)
 
-        apply_resizing(rainGraph, 20, 100);
+        resizing(rainGraph);
 }
 
 function humidityGraph(cfData){
@@ -84,8 +92,8 @@ function humidityGraph(cfData){
     let maxDate = yearDimension.top(1)[0].year;
 
     let humidityGraph = new dc.LineChart("#graph4");
-    humidityGraph.width(900)
-        .height(500)
+    humidityGraph.width(700)
+        .height(300)
         .dimension(yearDimension)
         .group(humidGroup)
         .x(d3.scaleTime().domain([minDate, maxDate]))
@@ -93,5 +101,5 @@ function humidityGraph(cfData){
         .yAxisLabel('Humidity')
         .yAxis().ticks(20)
 
-        apply_resizing(humidityGraph, 20, 100);
+        resizing(humidityGraph);
 }
