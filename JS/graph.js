@@ -37,7 +37,7 @@ function casesGraph(cfData){
         .group(caseGroup)
         .x(d3.scaleTime().domain([minDate, maxDate]))
         .xAxisLabel('Year')
-        .yAxisLabel('Cases')
+        .yAxisLabel('Cases',40)
         .yAxis().ticks(10);
 
         resizing(casesGraph);
@@ -78,7 +78,7 @@ function rainGraph(cfData){
         .group(rainGroup)
         .x(d3.scaleTime().domain([minDate, maxDate]))
         .xAxisLabel('Year')
-        .yAxisLabel('Rainfall')
+        .yAxisLabel('Rainfall',40)
         .yAxis().ticks(20)
 
         resizing(rainGraph);

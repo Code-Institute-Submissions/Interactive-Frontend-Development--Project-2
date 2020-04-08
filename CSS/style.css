@@ -64,3 +64,13 @@ background-color: grey;
 .map-section{
     background-color: grey;
 }
+
+/* to space out Cases graph y label  */
+#graph .y-label{
+    transform: translate(20px,134px) rotate(-90deg);
+}
+
+/* to sapce out Rainfall graph y label */
+#graph3 .y-label{
+    transform: translate(20px,134px) rotate(-90deg);
+}
