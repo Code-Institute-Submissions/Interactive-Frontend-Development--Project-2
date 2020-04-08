@@ -55,7 +55,7 @@
 		<div class="col-2"></div>
 	</div> -->
 
-	<div class="row intro">
+	<header class="row intro">
 		<div class="col-1 p-0"></div>
 		<div class="col-10 intro-header mt-5 mb-5">
 			<h1>'First-time dengue infections can be severe, especially among the elderly and those with pre-existing
@@ -63,24 +63,44 @@
 				dengue. Dengue haemorrhagic fever and dengue shock syndrome can be fatal.'</h1>
 		</div>
 		<div class="col-1 p-0"></div>
-	</div>
-	</div>
-
-<div class='row map-section'>
-	<div class='col-12 col-lg-6' id='map-content'>
-		<div><button id='chas'>Show CHAS</button></div>
-		<div><button id='hospital'>Show Hospital</button></div>
-		<div><button id='cluster'>Show Cluster</button></div>	
-	</div>
-
-	<div class='col-12 col-lg-6' id='map'>
-	</div>
-</div>
+	</header>
 
 
-	<div><button id='chas'>Show CHAS</button></div>
+	<section class='row map-section'>
+		<div class='col-12 col-lg-6' id='map-content'>
+
+			<article>A dengue cluster indicates a locality with active transmission where intervention is
+				targeted. It is formed when two or more cases have onset within 14 days and are located within 150m of
+				each other (based on residential and workplace addresses).
+				<button id='cluster'>Show Cluster</button>
+			</article>
+			<br></br>
+			<article>
+				<h2>If you experience any of the symptoms below, please seek medical attention immediately.</h2>
+				<ul>
+					<li>Sudden onset of fever for 2-7 days </li>
+					<li>Severe headache with pain behind the eyes </li>
+					<li>Joint and muscle pain </li>
+					<li>Skin rashes </li>
+					<li>Nausea and vomiting</li>
+					<li>Mild bleeding (e.g. nose or gum bleed, or easy bruising of the Symptoms usually appear 4-7 days
+						after being bitten (ranges from 3-14 days).</li>
+				</ul>
+				<button id='chas'>Show CHAS Clinics</button>
+				<button id='hospital'>Show Hospitals</button>
+			</article>
+
+
+		</div>
+
+		<div class='col-12 col-lg-6' id='map'>
+		</div>
+	</section>
+
+
+	<!-- <div><button id='chas'>Show CHAS</button></div>
 	<div><button id='hospital'>Show Hospital</button></div>
-	<div><button id='cluster'>Show Cluster</button></div>
+	<div><button id='cluster'>Show Cluster</button></div> -->
 
 	<div id='graph'></div>
 	<div id='graph2'></div>

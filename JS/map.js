@@ -130,7 +130,7 @@ var home = {
     zoom: 11
   }; 
   
-  L.easyButton('fa-home',function(btn,map){
+  L.easyButton('fa-home fa-lg',function(btn,map){
     map.setView([home.lat, home.lng], home.zoom);
   },'Zoom To Home').addTo(map);
 
