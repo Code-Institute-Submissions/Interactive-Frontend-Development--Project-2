@@ -43,6 +43,7 @@
 .intro-header h1{
     margin-top: 10%;
     font-size: 3em;
+    color: white;
 }
 
 @media (max-width:600px){
@@ -53,8 +54,8 @@
 }
 
 #map {
-    height: 500px;
-    border-radius: 50px;
+    height: 800px;
+    border-radius: 20px;
 }
 
 /* #map-content {
@@ -63,6 +64,10 @@ background-color: grey;
 
 .map-section{
     background-color: grey;
+}
+
+#map-content article{
+    color: white;
 }
 
 /* to space out Cases graph y label  */
