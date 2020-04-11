@@ -68,6 +68,7 @@ background-color: grey;
 
 #map-content article{
     color: white;
+    text-align: center;
 }
 
 /* to space out Cases graph y label  */

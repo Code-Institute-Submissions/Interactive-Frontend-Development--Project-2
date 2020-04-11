@@ -34,6 +34,7 @@ function mergeData(allData){
     let humidityData = allData[2]
     let rainfallData = allData[3]
     let baseData = allData[4]
+    let deathData = allData[5]
 
     // start of baseData for loop
     for (let b of baseData){
@@ -74,14 +75,27 @@ function mergeData(allData){
         }
     }
 
+    // filtering of death data
+    let yearlyDeath = 0;
+    for (let d of deathData){
+        if (d.year == b.year){
+            yearlyDeath = d.deaths
+            // console.log(d.year)
+        }
+    }
+
+
     //storing of the transformed object
     let transformedObject = {
         year: moment(b.year, "YYYY").toDate(),
         Cases:yearlyCases,
         Temperature: yearlyAverageTemp,
         Humidity: yearlyAverageHumidity,
-        Rainfall: yearlyAverageRainfall
+        Rainfall: yearlyAverageRainfall,
+        Deaths: yearlyDeath
     };
+
+    console.log(transformedObject)
 
 finalData.push(transformedObject)
     }// end of baseData for loop
