@@ -32,15 +32,6 @@ function casesGraph(cfData){
 
     let casesGraph = new dc.BarChart("#graph");
     casesGraph
-    // .width(700)
-    //     .height(300)
-    //     .dimension(yearDimension)
-    //     .group(caseGroup)
-    //     .x(d3.scaleTime().domain([minDate, maxDate]))
-    //     .xAxisLabel('Year')
-    //     .yAxisLabel('Cases',40)
-    //     .yAxis().ticks(10);
-
         .width(700)
         .height(300)
         .dimension(yearDimension)
@@ -48,28 +39,13 @@ function casesGraph(cfData){
         .elasticY(true)
         .x(d3.scaleTime().domain([minDate, maxDate]))
         .xUnits(dc.units.ordinal)
-        // .centerBar(true)
+        .yAxisLabel("Cases", 40)
+        .xAxisLabel("Year")
         .xAxisPadding(1)
         .elasticX(true)
-        // .xUnits(d3.time.months)
-        // .round(d3.time.month.round)
         .renderHorizontalGridLines(true)
-        // .compose([budgets, actuals])
         .brushOn(false)
         
-
-
-        // .width(800)
-        // .height(200)
-        // .dimension(yearDimension)
-        // .group(caseGroup)
-        // .x(d3.scale.ordinal())
-        // .xUnits(dc.units.ordinal)
-        // .yAxisLabel("Cases")
-        // .ordinalColors(["#44af69"])
-        // .useViewBoxResizing(true)
-        // .xAxisLabel("year");
-
         resizing(casesGraph);
         
 }
@@ -81,15 +57,21 @@ function tempGraph(cfData){
     let minDate = yearDimension.bottom(1)[0].year;
     let maxDate = yearDimension.top(1)[0].year;
 
-    let tempGraph = new dc.LineChart("#graph2");
-    tempGraph.width(700)
+    let tempGraph = new dc.BarChart("#graph2");
+    tempGraph
+        .width(700)
         .height(300)
         .dimension(yearDimension)
         .group(tempGroup)
+        .elasticY(true)
         .x(d3.scaleTime().domain([minDate, maxDate]))
-        .xAxisLabel('Year')
-        .yAxisLabel('Temperature')
-        .yAxis().ticks(20)
+        .xUnits(dc.units.ordinal)
+        .yAxisLabel("Temperature", 40)
+        .xAxisLabel("Year")
+        .xAxisPadding(1)
+        .elasticX(true)
+        .renderHorizontalGridLines(true)
+        .brushOn(false)
 
         resizing(tempGraph);
 }
@@ -101,15 +83,21 @@ function rainGraph(cfData){
     let minDate = yearDimension.bottom(1)[0].year;
     let maxDate = yearDimension.top(1)[0].year;
 
-    let rainGraph = new dc.LineChart("#graph3");
-    rainGraph.width(700)
+    let rainGraph = new dc.BarChart("#graph3");
+    rainGraph
+        .width(700)
         .height(300)
         .dimension(yearDimension)
         .group(rainGroup)
+        .elasticY(true)
         .x(d3.scaleTime().domain([minDate, maxDate]))
-        .xAxisLabel('Year')
-        .yAxisLabel('Rainfall',40)
-        .yAxis().ticks(20)
+        .xUnits(dc.units.ordinal)
+        .yAxisLabel("Rainfall", 40)
+        .xAxisLabel("Year")
+        .xAxisPadding(1)
+        .elasticX(true)
+        .renderHorizontalGridLines(true)
+        .brushOn(false)
 
         resizing(rainGraph);
 }
@@ -121,15 +109,21 @@ function humidityGraph(cfData){
     let minDate = yearDimension.bottom(1)[0].year;
     let maxDate = yearDimension.top(1)[0].year;
 
-    let humidityGraph = new dc.LineChart("#graph4");
-    humidityGraph.width(700)
-        .height(300)
-        .dimension(yearDimension)
-        .group(humidGroup)
-        .x(d3.scaleTime().domain([minDate, maxDate]))
-        .xAxisLabel('Year')
-        .yAxisLabel('Humidity')
-        .yAxis().ticks(20)
+    let humidityGraph = new dc.BarChart("#graph4");
+    humidityGraph
+    .width(700)
+    .height(300)
+    .dimension(yearDimension)
+    .group(humidGroup)
+    .elasticY(true)
+    .x(d3.scaleTime().domain([minDate, maxDate]))
+    .xUnits(dc.units.ordinal)
+    .yAxisLabel("Humidity", 40)
+    .xAxisLabel("Year")
+    .xAxisPadding(1)
+    .elasticX(true)
+    .renderHorizontalGridLines(true)
+    .brushOn(false)
 
         resizing(humidityGraph);
 }

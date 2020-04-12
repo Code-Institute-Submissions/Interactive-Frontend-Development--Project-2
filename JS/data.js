@@ -86,6 +86,5 @@ function mergeData(allData){
 finalData.push(transformedObject)
     }// end of baseData for loop
 
-// console.log(finalData);
 return finalData;
 } // end of mergeData function
