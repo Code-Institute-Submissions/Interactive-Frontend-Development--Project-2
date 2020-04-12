@@ -30,15 +30,45 @@ function casesGraph(cfData){
     let minDate = yearDimension.bottom(1)[0].year;
     let maxDate = yearDimension.top(1)[0].year;
 
-    let casesGraph = new dc.LineChart("#graph");
-    casesGraph.width(700)
+    let casesGraph = new dc.BarChart("#graph");
+    casesGraph
+    // .width(700)
+    //     .height(300)
+    //     .dimension(yearDimension)
+    //     .group(caseGroup)
+    //     .x(d3.scaleTime().domain([minDate, maxDate]))
+    //     .xAxisLabel('Year')
+    //     .yAxisLabel('Cases',40)
+    //     .yAxis().ticks(10);
+
+        .width(700)
         .height(300)
         .dimension(yearDimension)
         .group(caseGroup)
+        .elasticY(true)
         .x(d3.scaleTime().domain([minDate, maxDate]))
-        .xAxisLabel('Year')
-        .yAxisLabel('Cases',40)
-        .yAxis().ticks(10);
+        .xUnits(dc.units.ordinal)
+        // .centerBar(true)
+        .xAxisPadding(1)
+        .elasticX(true)
+        // .xUnits(d3.time.months)
+        // .round(d3.time.month.round)
+        .renderHorizontalGridLines(true)
+        // .compose([budgets, actuals])
+        .brushOn(false)
+        
+
+
+        // .width(800)
+        // .height(200)
+        // .dimension(yearDimension)
+        // .group(caseGroup)
+        // .x(d3.scale.ordinal())
+        // .xUnits(dc.units.ordinal)
+        // .yAxisLabel("Cases")
+        // .ordinalColors(["#44af69"])
+        // .useViewBoxResizing(true)
+        // .xAxisLabel("year");
 
         resizing(casesGraph);
         
