@@ -71,6 +71,18 @@ background-color: grey;
     text-align: center;
 }
 
+.graph-section {
+    background-color: gray;
+}
+
+.graphs{
+    text-align: center;
+}
+
+#graph-header{
+    justify-content: center;
+}
+
 /* to space out Cases graph y label  */
 #graph .y-label{
     transform: translate(20px,134px) rotate(-90deg);

@@ -32,7 +32,7 @@ function casesGraph(cfData){
 
     let casesGraph = new dc.BarChart("#graph");
     casesGraph
-        .width(700)
+        .width(600)
         .height(300)
         .dimension(yearDimension)
         .group(caseGroup)
@@ -41,7 +41,6 @@ function casesGraph(cfData){
         .xUnits(dc.units.ordinal)
         .yAxisLabel("Cases", 40)
         .xAxisLabel("Year")
-        .xAxisPadding(1)
         .elasticX(true)
         .renderHorizontalGridLines(true)
         .brushOn(false)
@@ -60,7 +59,7 @@ function tempGraph(cfData){
 
     let tempGraph = new dc.BarChart("#graph2");
     tempGraph
-        .width(700)
+        .width(600)
         .height(300)
         .dimension(yearDimension)
         .group(tempGroup)
@@ -69,7 +68,6 @@ function tempGraph(cfData){
         .xUnits(dc.units.ordinal)
         .yAxisLabel("Temperature", 40)
         .xAxisLabel("Year")
-        .xAxisPadding(1)
         .elasticX(true)
         .renderHorizontalGridLines(true)
         .brushOn(false)
@@ -87,7 +85,7 @@ function rainGraph(cfData){
 
     let rainGraph = new dc.BarChart("#graph3");
     rainGraph
-        .width(700)
+        .width(600)
         .height(300)
         .dimension(yearDimension)
         .group(rainGroup)
@@ -96,7 +94,6 @@ function rainGraph(cfData){
         .xUnits(dc.units.ordinal)
         .yAxisLabel("Rainfall", 40)
         .xAxisLabel("Year")
-        .xAxisPadding(1)
         .elasticX(true)
         .renderHorizontalGridLines(true)
         .brushOn(false)
@@ -114,7 +111,7 @@ function humidityGraph(cfData){
 
     let humidityGraph = new dc.BarChart("#graph4");
     humidityGraph
-    .width(700)
+    .width(600)
     .height(300)
     .dimension(yearDimension)
     .group(humidGroup)
@@ -123,11 +120,10 @@ function humidityGraph(cfData){
     .xUnits(dc.units.ordinal)
     .yAxisLabel("Humidity", 40)
     .xAxisLabel("Year")
-    .xAxisPadding(1)
     .elasticX(true)
     .renderHorizontalGridLines(true)
     .brushOn(false)
-    .colors("#5f606b");
+    .colors("#31bd56");
 
         resizing(humidityGraph);
 }
