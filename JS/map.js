@@ -15,8 +15,8 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 $(function(){
     // Getting data sets
-    let chasData = '../data/chas-clinics-geojson.geojson'
-    let hosData = '../data/hospital.geojson'
+    let chasData = 'data/chas-clinics-geojson.geojson'
+    let hosData = 'data/hospital.geojson'
 
     // creating the CHAS marker clusters layer
     let chasMarkerCluster = L.markerClusterGroup()
@@ -30,7 +30,6 @@ $(function(){
             let chasCordinates = response.data.features 
             let x = 0
             for (let c of chasCordinates){              
-                // console.log(chasCordinates[x].geometry.coordinates)          
                 let t = chasCordinates[x].geometry.coordinates
                 let chasMarker = L.marker([t[1],t[0]]);
                 let m = chasMarker.bindPopup(response.data.features[x].properties.Description)
@@ -77,7 +76,7 @@ $(function(){
     })// end of Axios hosData 
 
     // leaflet omnivore
-    let clusterCases = omnivore.kml('../data/dengue-clusters-kml.kml').addTo(map)
+    let clusterCases = omnivore.kml('data/dengue-clusters-kml.kml').addTo(map)
     .on('ready', function() {
      this.setStyle({color: "#FF0000"});
  });
@@ -99,11 +98,11 @@ $(function(){
     })
 
     // creating layers for breeding habitat  
-    let centralHabitat = omnivore.kml('../data/aedes-mosquito-breeding-habitats-central-kml.kml')
-    let northEastHabitat = omnivore.kml('../data/aedes-mosquito-breeding-habitats-north-east-kml.kml')
-    let northWestHabitat = omnivore.kml('../data/aedes-mosquito-breeding-habitats-north-west-kml.kml')
-    let southEastHabitat = omnivore.kml('../data/aedes-mosquito-breeding-habitats-south-east-kml.kml')
-    let southWestHabitat = omnivore.kml('../data/aedes-mosquito-breeding-habitats-south-west-kml.kml')
+    let centralHabitat = omnivore.kml('data/aedes-mosquito-breeding-habitats-central-kml.kml')
+    let northEastHabitat = omnivore.kml('data/aedes-mosquito-breeding-habitats-north-east-kml.kml')
+    let northWestHabitat = omnivore.kml('data/aedes-mosquito-breeding-habitats-north-west-kml.kml')
+    let southEastHabitat = omnivore.kml('data/aedes-mosquito-breeding-habitats-south-east-kml.kml')
+    let southWestHabitat = omnivore.kml('data/aedes-mosquito-breeding-habitats-south-west-kml.kml')
 
     // seting individual layer
     let habitatLayers = {

@@ -19,7 +19,6 @@ $(function(){
     $('.nav-item').click(function(){
        
         let whichPage = $(this).data('pages')
-        console.log(whichPage)
         $('.content-page').hide();
         $('.page'+whichPage).show();
     })
