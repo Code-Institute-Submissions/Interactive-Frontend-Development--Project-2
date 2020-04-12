@@ -58,9 +58,6 @@
     border-radius: 20px;
 }
 
-/* #map-content {
-background-color: grey;
-} */
 
 .map-section{
     background-color: grey;
@@ -80,7 +77,14 @@ background-color: grey;
 }
 
 #graph-header{
-    justify-content: center;
+    text-align: center;
+    justify-content:center;
+}
+
+#graph-header h2{
+    margin-left:20px;
+    margin-right: 20px;
+    color: white;
 }
 
 /* to space out Cases graph y label  */
