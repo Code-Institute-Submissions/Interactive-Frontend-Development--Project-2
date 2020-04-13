@@ -32,11 +32,15 @@ $(function(){
             for (let c of chasCordinates){              
                 let t = chasCordinates[x].geometry.coordinates
                 let chasMarker = L.marker([t[1],t[0]]);
-                let m = chasMarker.bindPopup(response.data.features[x].properties.Description)
+                //extracting relevant data from description in json file
+                let desc = $(response.data.features[x].properties.Description);
+                let tableCells = desc.find('td');
+                let clinicName = `<table><tr bgcolor="#E3E3F3"><td><h5>${tableCells[1].innerText}</h5></td></tr></table>`
+                let clinicAddress = (tableCells[9].innerText) + ' Block ' +(tableCells[6].innerText) + ' #' + (tableCells[7].innerText) + '-' + (tableCells[8].innerText) + ' Postal ' + (tableCells[4].innerText)
+                let clinicNumber = ' Tel:'+(tableCells[3].innerText)
+                let m = chasMarker.bindPopup(clinicName + ' ' + clinicAddress + ' ' + clinicNumber) 
                 chasMarkerCluster.addLayer(m);
-                // map.addLayer(chasMarkerCluster)   
-                // chasMarker.bindPopup(response.data.features[x].properties.Description).addTo(map);
-                x = x + 1;
+                x++;
             }
             if (map.hasLayer(chasMarkerCluster)){
                 map.removeLayer(chasMarkerCluster)
@@ -60,8 +64,6 @@ $(function(){
                 let hosMarker = L.marker([t[0],t[1]]);
                 let m = hosMarker.bindPopup(response.data.features[x].geometry.Name)
                 hospitalLayerGroup.addLayer(m)
-                // m.addTo(map);
-                // map.addLayer(m)
                 x = x + 1;
             }
             if (map.hasLayer(hospitalLayerGroup)){

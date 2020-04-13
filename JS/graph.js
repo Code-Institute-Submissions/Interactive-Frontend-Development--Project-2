@@ -9,8 +9,6 @@ function createGraph(finalData){
     tempGraph(cfData);
     rainGraph(cfData);
     humidityGraph(cfData);
-
-    // apply_resizing(casesGraph, 20, 100);
     
     dc.renderAll();
 }
