@@ -6,6 +6,8 @@
       "properties": {},
       "geometry": {
         "Name": "Alexandra Hospital",
+        "Address": "378 Alexandra Rd, Singapore 159964",
+        "Tel": "6472 2000",
         "coordinates": [
           1.2866,
           103.8013
@@ -17,6 +19,8 @@
       "properties": {},
       "geometry": {
         "Name": "Changi General Hospital",
+        "Address": "2 Simei Street 3, Singapore 529889",
+        "Tel": "6788 8833",
         "coordinates": [
           1.3402,
           103.9496
@@ -28,6 +32,8 @@
       "properties": {},
       "geometry": {
         "Name": "KK Women's and Children's Hospital",
+        "Address": "Bukit Timah Rd, 100, Singapore 229899",
+        "Tel": "6225 5554",
         "coordinates": [
           1.3108,
           103.8469
@@ -39,6 +45,8 @@
       "properties": {},
       "geometry": {
         "Name": "Khoo Teck Puat Hospital",
+        "Address": "90 Yishun Central, Singapore 768828",
+        "Tel": "6555 8000",
         "coordinates": [
           1.4246,
           103.8382
@@ -50,6 +58,8 @@
       "properties": {},
       "geometry": {
         "Name": "National University Hospital",
+        "Address": "5 Lower Kent Ridge Rd, Singapore 119074",
+        "Tel": "6779 5555",
         "coordinates": [
           1.2937,
           103.7832
@@ -61,6 +71,8 @@
       "properties": {},
       "geometry": {
         "Name": "Ng Teng Fong General Hospital",
+        "Address": "1 Jurong East Street 21, Singapore 609606",
+        "Tel": "6716 2000",
         "coordinates": [
           1.335043,
           103.743990
@@ -72,6 +84,8 @@
       "properties": {},
       "geometry": {
         "Name": "Sengkang General Hospital",
+        "Address": "110 Sengkang E Way, Singapore 544886",
+        "Tel": "6930 6000",
         "coordinates": [
           1.3955,
           103.8934
@@ -83,6 +97,8 @@
       "properties": {},
       "geometry": {
         "Name": "Singapore General Hospital",
+        "Address": "Outram Rd, Singapore 169608",
+        "Tel": "6222 3322",
         "coordinates": [
           1.2796,
           103.8359
@@ -94,6 +110,8 @@
       "properties": {},
       "geometry": {
         "Name": "Tan Tock Seng Hospital",
+        "Address": "11 Jln Tan Tock Seng, Singapore 308433",
+        "Tel": "6256 6011",
         "coordinates": [
           1.3214,
           103.8458
