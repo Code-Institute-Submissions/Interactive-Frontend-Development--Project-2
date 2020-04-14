@@ -31,7 +31,10 @@ $(function(){
             let x = 0
             for (let c of chasCordinates){              
                 let t = chasCordinates[x].geometry.coordinates
-                let chasMarker = L.marker([t[1],t[0]]);
+                let clinicIcon = L.icon({
+                    iconUrl: 'images/clinic.png'})
+                let chasMarker = L.marker([t[1],t[0]],{icon: clinicIcon});
+                
                 //extracting relevant data from description in json file
                 let desc = $(response.data.features[x].properties.Description);
                 let tableCells = desc.find('td');
@@ -61,11 +64,12 @@ $(function(){
             let x = 0
             for (let h of hosCordinates){              
                 let t = hosCordinates[x].geometry.coordinates
-
                 let hospitalName = `<table><tr bgcolor="#E3E3F3"><td><h5>${response.data.features[x].geometry.Name}</h5></td></tr></table>`
                 let hospitalAddress = response.data.features[x].geometry.Address
                 let hospitalTel = response.data.features[x].geometry.Tel
-                let hosMarker = L.marker([t[0],t[1]]);
+                let hospitalIcon = L.icon({
+                    iconUrl: 'images/hospital.png'})
+                let hosMarker = L.marker([t[0],t[1]],{icon: hospitalIcon});
                 let m = hosMarker.bindPopup(hospitalName + ' ' + hospitalAddress + ' Tel:' + hospitalTel)
                 hospitalLayerGroup.addLayer(m)
                 x++;

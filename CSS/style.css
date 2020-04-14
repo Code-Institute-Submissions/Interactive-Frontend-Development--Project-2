@@ -64,6 +64,9 @@
     }
 }
 
+ul {
+    text-align: left;
+}
 
 .map-section{
     background-color: grey;
