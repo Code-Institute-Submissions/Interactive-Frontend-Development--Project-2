@@ -1,3 +1,6 @@
+// courtersy of @kunxin-chor
+// to make graphs mobile responsive
+
 var find_query = function () {
     var _map = window.location.search.substr(1).split('&').map(function (a) {
         return a.split('=');

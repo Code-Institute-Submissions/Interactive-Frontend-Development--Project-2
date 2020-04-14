@@ -1,12 +1,9 @@
 
-
 /* stying of layer control header */
 #control-header {
     font-weight: bold;
     color: red;
 }
-
-
 /* nav bar */
 #navbarNavAltMarkup {
     justify-content: center;
@@ -15,19 +12,15 @@
     margin-right: 150px;
     margin-left: 150px;
 }
-
 .navbar-nav{
     font-weight: 600;
 }
-
 .intro{
     background-image: url(../images/mosquito-bg.jpg);
     background-size: cover;
     background-position: center;
     height: 700px;
-
 }
-
 .intro-header{
     margin-top: 15vh;
     margin-bottom: 15vh;
@@ -36,71 +29,59 @@
     text-align: center;
     border-radius: 100px;
 }
-
 .intro-header h1{
     margin-top: 10%;
     font-size: 3em;
     font-family: 'Archivo Narrow', sans-serif;
     color: white;
 }
-
 @media (max-width:600px){
     .intro-header h1{
         margin-top: 30%;
         font-size: 1.5em;
     }
 }
-
 #map {
     height: 800px;
     border-radius: 20px;
 }
-
 @media (max-width:600px){
     #map {
         height:400px;
     }
 }
-
 ul {
     text-align: left;
+    font-size: 20px;
 }
-
 .map-section{
     background-color:#a6afbf;
 }
-
 #map-content article{
     color: #274354;
     font-family: 'Archivo Narrow', sans-serif;
     text-align: center;
 }
-
 .graph-section {
     background-color:#a6afbf;
 }
-
 .graphs{
     text-align: center;
 }
-
 #graph-header{
     text-align: center;
     justify-content:center;
 }
-
 #graph-header h2{
     margin-left:20px;
     margin-right: 20px;
     font-family: 'Archivo Narrow', sans-serif;
     color: #274354;
 }
-
 /* to space out Cases graph y label  */
 #graph .y-label{
     transform: translate(20px,134px) rotate(-90deg);
 }
-
 /* to space out Rainfall graph y label */
 #graph3 .y-label{
     transform: translate(20px,134px) rotate(-90deg);
