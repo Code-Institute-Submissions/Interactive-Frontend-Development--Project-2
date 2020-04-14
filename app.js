@@ -1,3 +1,6 @@
+// Generic JS codes
+$(function(){
+
 // all the graph data
 let graphData = [
     'data/weekly-infectious-disease-bulletin-cases.csv',
@@ -8,7 +11,7 @@ let graphData = [
     
 ];
 
-$(function(){
+
 
     runData(graphData, processData)
 
