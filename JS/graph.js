@@ -42,7 +42,7 @@ function casesGraph(cfData){
         .elasticX(true)
         .renderHorizontalGridLines(true)
         .brushOn(false)
-        .colors("#ad0a0a");
+        .colors("#0c120c");
 
         resizing(casesGraph);
         
@@ -69,7 +69,7 @@ function tempGraph(cfData){
         .elasticX(true)
         .renderHorizontalGridLines(true)
         .brushOn(false)
-        .colors("#240aa6");
+        .colors("#c8143c");
 
         resizing(tempGraph);
 }
@@ -95,7 +95,7 @@ function rainGraph(cfData){
         .elasticX(true)
         .renderHorizontalGridLines(true)
         .brushOn(false)
-        .colors("#29e3d0");
+        .colors("#274354");
 
         resizing(rainGraph);
 }
@@ -121,7 +121,7 @@ function humidityGraph(cfData){
     .elasticX(true)
     .renderHorizontalGridLines(true)
     .brushOn(false)
-    .colors("#31bd56");
+    .colors("#eaedf2");
 
         resizing(humidityGraph);
 }
