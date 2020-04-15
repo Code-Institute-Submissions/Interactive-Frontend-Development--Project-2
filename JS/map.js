@@ -64,9 +64,9 @@ $('#hospital').click(function(){
         let hospitalIcon = L.icon({
             iconUrl: 'images/hospital.png'})
         let x = 0
-        for (let h of hosCordinates){              
+        for (let h of hosCordinates){    
+            let t = hosCordinates[x].geometry.coordinates          
             let hosMarker = L.marker([t[0],t[1]],{icon: hospitalIcon});
-            let t = hosCordinates[x].geometry.coordinates
             let hospitalName = `<table><tr bgcolor="#E3E3F3"><td><h5>${response.data.features[x].geometry.Name}</h5></td></tr></table>`
             let hospitalAddress = response.data.features[x].geometry.Address
             let hospitalTel = response.data.features[x].geometry.Tel
