@@ -16,6 +16,7 @@ function createGraph(finalData){
 
 // When detect less than 768 pixel screen size
 function resizing(graphname){
+    // to detect screen size
     if(window.matchMedia("(max-width: 767px)").matches){
         // apply responsive resizing to fit mobile screen size
         apply_resizing(graphname, 20, 100);
